@@ -7,13 +7,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 public class ClearPerPlayerScoreboard extends ClearScoreboard {
 
   private Function<Player, String> generateTitleFunction;
   private Function<Player, List<String>> generateLinesFunction;
-  private final Map<UUID, Scoreboard> playerScoreboardMap = new HashMap<>();
+  private final Map<UUID, Scoreboard> playerScoreboardMap = new ConcurrentHashMap<>();
 
   public ClearPerPlayerScoreboard(ClearScoreboardOptions options) {
     setOptions(options);
@@ -90,13 +91,14 @@ public class ClearPerPlayerScoreboard extends ClearScoreboard {
   }
 
   /**
-   * Change the options of a scoreboard. Will update the scoreboard
+   * Change the options of a scoreboard.
+   * <p><b>Note:</b> You must call {@link #updateScoreboard()} after changing options
+   * for the changes to take effect.</p>
    * @param options The new options for the scoreboard
    */
   @Override
   public void setOptions(ClearScoreboardOptions options) {
     super.setOptions(options);
-    updateScoreboard();
   }
 
   /**

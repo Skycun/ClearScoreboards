@@ -3,10 +3,11 @@ package dev.skycun.clearscoreboards;
 import org.bukkit.entity.Player;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public final class ClearPerPlayerMethodBasedScoreboard extends ClearPerPlayerScoreboard {
-  private final Map<UUID, String> playerToTitleMap = new HashMap<>();
-  private final Map<UUID, List<String>> playerToLinesMap = new HashMap<>();
+  private final Map<UUID, String> playerToTitleMap = new ConcurrentHashMap<>();
+  private final Map<UUID, List<String>> playerToLinesMap = new ConcurrentHashMap<>();
 
   public ClearPerPlayerMethodBasedScoreboard(ClearScoreboardOptions options) {
     super(options);
@@ -42,5 +43,26 @@ public final class ClearPerPlayerMethodBasedScoreboard extends ClearPerPlayerSco
   public void setLines(Player player, String... lines) {
     playerToLinesMap.put(player.getUniqueId(), Arrays.asList(lines));
     updateScoreboard();
+  }
+
+  /**
+   * Remove a player from the scoreboard and clean up associated data to prevent memory leaks.
+   * @param player The player to remove
+   */
+  @Override
+  public void removePlayer(Player player) {
+    super.removePlayer(player);
+    playerToTitleMap.remove(player.getUniqueId());
+    playerToLinesMap.remove(player.getUniqueId());
+  }
+
+  /**
+   * Destroy the scoreboard and clean up all associated data.
+   */
+  @Override
+  public void destroy() {
+    super.destroy();
+    playerToTitleMap.clear();
+    playerToLinesMap.clear();
   }
 }

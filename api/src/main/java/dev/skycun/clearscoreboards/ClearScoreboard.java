@@ -15,17 +15,26 @@ import org.bukkit.scoreboard.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * Base class for all scoreboard implementations.
+ *
+ * <p><b>Thread Safety:</b> This class uses thread-safe collections (CopyOnWriteArrayList and ConcurrentHashMap)
+ * to support concurrent access from multiple threads. However, for best performance, it is recommended
+ * to access scoreboards primarily from the main server thread.</p>
+ */
 public abstract class ClearScoreboard {
   private ClearScoreboardOptions options;
 
-  private InternalObjectiveWrapper objectiveWrapper;
-  private InternalTeamWrapper teamWrapper;
+  private final InternalObjectiveWrapper objectiveWrapper;
+  private final InternalTeamWrapper teamWrapper;
 
-  private final List<ClearScoreboardTeam> teams = new ArrayList<>();
-  private final List<UUID> activePlayers = new ArrayList<>();
+  private final List<ClearScoreboardTeam> teams = new CopyOnWriteArrayList<>();
+  private final List<UUID> activePlayers = new CopyOnWriteArrayList<>();
 
-  private final Map<Scoreboard, List<String>> previousLinesMap = new HashMap<>();
+  private final Map<Scoreboard, List<String>> previousLinesMap = new ConcurrentHashMap<>();
 
   private final int maxLineLength;
 
@@ -34,8 +43,9 @@ public abstract class ClearScoreboard {
       objectiveWrapper = SpigotAPIVersion.getCurrent().makeObjectiveWrapper();
       teamWrapper = SpigotAPIVersion.getCurrent().makeInternalTeamWrapper();
     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e) {
-      e.printStackTrace();
-      Bukkit.getLogger().severe("Failed to initialize ClearScoreboards- please send the full stacktrace above to https://github.com/Skycun/ClearScoreboards. If you are using someone else's plugin instead of developing your own, report this issue to them.");
+      throw new IllegalStateException(
+          "Failed to initialize ClearScoreboards for Minecraft version " + SpigotAPIVersion.getCurrent() +
+          ". Please report this issue to https://github.com/Skycun/ClearScoreboards with the full stacktrace.", e);
     }
 
     if (SpigotAPIVersion.getCurrent().lessThan(SpigotAPIVersion.v1_13)) {
@@ -151,14 +161,15 @@ public abstract class ClearScoreboard {
 
     this.activePlayers.clear();
     this.teams.clear();
+    this.previousLinesMap.clear();
   }
 
   /**
    * Get the teams registered on the Scoreboard
-   * @return The teams registered on the scoreboard
+   * @return An unmodifiable view of the teams registered on the scoreboard
    */
   public List<ClearScoreboardTeam> getTeams() {
-    return teams;
+    return Collections.unmodifiableList(teams);
   }
 
   /**

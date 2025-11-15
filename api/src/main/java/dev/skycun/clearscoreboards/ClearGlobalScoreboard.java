@@ -62,13 +62,14 @@ public class ClearGlobalScoreboard extends ClearScoreboard {
   }
 
   /**
-   * Set the options of the Scoreboard. Will update the scoreboard to reflect any changes.
+   * Set the options of the Scoreboard.
+   * <p><b>Note:</b> You must call {@link #updateScoreboard()} after changing options
+   * for the changes to take effect.</p>
    * @param options The new options of the scoreboard.
    */
   @Override
   public void setOptions(ClearScoreboardOptions options) {
     super.setOptions(options);
-    updateScoreboard();
   }
 
   /**

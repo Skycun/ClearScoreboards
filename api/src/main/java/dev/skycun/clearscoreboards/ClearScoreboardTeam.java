@@ -11,12 +11,19 @@ import org.bukkit.scoreboard.Team;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * Represents a team in a ClearScoreboard.
+ *
+ * <p><b>Thread Safety:</b> This class uses thread-safe collections to support
+ * concurrent access from multiple threads.</p>
+ */
 public class ClearScoreboardTeam {
   private String name;
   private String displayName;
   private final ChatColor teamColor;
-  private final List<UUID> entities = new ArrayList<>();
+  private final List<UUID> entities = new CopyOnWriteArrayList<>();
   private final ClearScoreboard scoreboard;
 
   protected ClearScoreboardTeam(String name, String displayName, ChatColor teamColor, ClearScoreboard scoreboard) {
