@@ -17,12 +17,12 @@
     </build>
 
     <parent>
-        <groupId>dev.jcsoftware</groupId>
-        <artifactId>JScoreboards-parent</artifactId>
+        <groupId>dev.skycun</groupId>
+        <artifactId>ClearScoreboards-parent</artifactId>
         <version>2.1.5-RELEASE</version>
     </parent>
 
-    <artifactId>jscoreboards-abstraction</artifactId>
+    <artifactId>clearscoreboards-abstraction</artifactId>
 
     <dependencies>
         <dependency>

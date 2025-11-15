@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>dev.jcsoftware</groupId>
-        <artifactId>JScoreboards-parent</artifactId>
+        <groupId>dev.skycun</groupId>
+        <artifactId>ClearScoreboards-parent</artifactId>
         <version>2.1.5-RELEASE</version>
     </parent>
 
-    <artifactId>JScoreboards</artifactId>
+    <artifactId>ClearScoreboards</artifactId>
 
     <dependencies>
         <dependency>
@@ -21,41 +21,35 @@
         </dependency>
 
         <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>jscoreboards-abstraction</artifactId>
+            <groupId>dev.skycun</groupId>
+            <artifactId>clearscoreboards-abstraction</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>jscoreboards-1_8-1_12</artifactId>
+            <groupId>dev.skycun</groupId>
+            <artifactId>clearscoreboards-1_8-1_12</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>jscoreboards-1_13</artifactId>
+            <groupId>dev.skycun</groupId>
+            <artifactId>clearscoreboards-1_13</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>jscoreboards-1_14-1_18</artifactId>
+            <groupId>dev.skycun</groupId>
+            <artifactId>clearscoreboards-1_14-1_18</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>team-support-1_12</artifactId>
+            <groupId>dev.skycun</groupId>
+            <artifactId>clearscoreboards-team-support-1_12</artifactId>
             <version>${project.parent.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>dev.jcsoftware</groupId>
-            <artifactId>jscoreboards-1_14-1_18</artifactId>
-            <version>2.1.5-RELEASE</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

@@ -1,10 +1,10 @@
-# JScoreboards
-Welcome to the JScoreboards Spigot library page.
+# ClearScoreboards
+Welcome to the ClearScoreboards Spigot library page.
 
 If you find bugs- report them as a GitHub issue. Thanks!
 
 If you'd like a video tutorial on how this API works, I have a [YouTube video](https://youtube.com/watch?v=SoPWdEMNFAM) you can watch.
-Otherwise, you can take a look at the [wiki](https://github.com/JordanOsterberg/JScoreboards/wiki).
+Otherwise, you can take a look at the [wiki](https://github.com/Skycun/ClearScoreboards/wiki).
  
 ## Maven Repository
 Please note- as of version 2.0.3 the Maven repository has changed. Update your pom.xml accordingly:
@@ -20,8 +20,8 @@ Please note- as of version 2.0.3 the Maven repository has changed. Update your p
 **Dependency**
 ```xml
 <dependency>
-    <groupId>dev.jcsoftware</groupId>
-    <artifactId>JScoreboards</artifactId>
+    <groupId>dev.skycun</groupId>
+    <artifactId>ClearScoreboards</artifactId>
     <version>2.1.5-RELEASE</version>
 </dependency>
 ```
@@ -63,10 +63,10 @@ If you're having trouble, please submit a GitHub issue. The self hosted Maven re
 See [LICENSE.md](LICENSE.md) for license information.
 
 ## Project Structure
-To support multiple Spigot/Bukkit versions, the project utilizes an abstraction layer to communicate with older server API versions without breaking user facing JScoreboard API compatibility.
+To support multiple Spigot/Bukkit versions, the project utilizes an abstraction layer to communicate with older server API versions without breaking user facing ClearScoreboard API compatibility.
 
 Simply, the project is organized like this:
-- `api` module, responsible for user facing JScoreboards API. This API is extremely stable and will not change between versions unless necessary.
+- `api` module, responsible for user facing ClearScoreboards API. This API is extremely stable and will not change between versions unless necessary.
 This module also contains a `SpigotAPIVersion` enum which decides which internal implementations to communicate with at runtime.
 - `abstraction` module, which defines the requirements for a version specific implementation of certain internal API (generally revolving around registering and handling Minecraft `Scoreboard` objectives.)
 
