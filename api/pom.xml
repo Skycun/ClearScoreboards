@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>dev.skycun</groupId>
-            <artifactId>clearscoreboards-1_14-1_18</artifactId>
+            <artifactId>clearscoreboards-1_14-1_21</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>

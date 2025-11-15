@@ -22,7 +22,7 @@
         <version>2.1.5-RELEASE</version>
     </parent>
 
-    <artifactId>clearscoreboards-1_14-1_18</artifactId>
+    <artifactId>clearscoreboards-1_14-1_21</artifactId>
 
     <dependencies>
         <dependency>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18-R0.1-SNAPSHOT</version>
+            <version>1.21-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

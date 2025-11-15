@@ -1,16 +1,16 @@
 # ClearScoreboards
 
-[![Minecraft](https://img.shields.io/badge/Minecraft-1.8--1.18+-green.svg)](https://www.spigotmc.org/)
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.8--1.21+-green.svg)](https://www.spigotmc.org/)
 [![Java](https://img.shields.io/badge/Java-8+-blue.svg)](https://www.java.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
-A powerful and flexible Spigot/Bukkit library for managing scoreboards with multi-version support (1.8-1.18+).
+A powerful and flexible Spigot/Bukkit library for managing scoreboards with multi-version support (1.8-1.21+).
 
 > **Note:** This project is a fork of [JScoreboards](https://github.com/JordanOsterberg/JScoreboards) by JordanOsterberg. All credit for the original implementation goes to the original author.
 
 ## Features
 
-- **Multi-Version Support** - Works seamlessly across Minecraft 1.8 through 1.18+
+- **Multi-Version Support** - Works seamlessly across Minecraft 1.8 through 1.21+
 - **No NMS** - Uses only Bukkit/Spigot API for maximum stability
 - **Multiple Implementation Types** - Choose between global or per-player scoreboards
 - **Dynamic Content** - Support for functional suppliers and lambda expressions
@@ -216,7 +216,7 @@ ClearScoreboards/
 ├── abstraction/            # Version abstraction layer
 ├── 1_8-1_12/              # Minecraft 1.8-1.12 implementation
 ├── 1_13/                  # Minecraft 1.13 implementation
-├── 1_14-1_18/             # Minecraft 1.14-1.18 implementation
+├── 1_14-1_21/             # Minecraft 1.14-1.21 implementation
 └── team-support-1_12/     # Minecraft 1.12 team API support
 ```
 
@@ -236,6 +236,9 @@ This architecture allows the same API to work across all supported Minecraft ver
 - ✅ Minecraft 1.16
 - ✅ Minecraft 1.17
 - ✅ Minecraft 1.18
+- ✅ Minecraft 1.19
+- ✅ Minecraft 1.20
+- ✅ Minecraft 1.21
 
 ### Version-Specific Features
 
