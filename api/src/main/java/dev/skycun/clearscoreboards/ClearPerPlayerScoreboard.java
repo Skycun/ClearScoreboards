@@ -68,6 +68,11 @@ public class ClearPerPlayerScoreboard extends ClearScoreboard {
    */
   @Override
   public void addPlayer(Player player) {
+    // Check for duplicates before adding (prevents issues with concurrent collections)
+    if (getActivePlayers().contains(player.getUniqueId())) {
+      return;
+    }
+
     getActivePlayers().add(player.getUniqueId());
 
     Validate.notNull(Bukkit.getScoreboardManager());
